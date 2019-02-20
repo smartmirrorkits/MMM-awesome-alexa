@@ -36,12 +36,9 @@ const DisplayCardImgId: string = "display-card-image";
 Module.register("MMM-awesome-alexa", {
     // Default module config.
     defaults: {
-        clientId: "amzn1.application-oa2-client.81574bebfb25437595d7376f44b54f8e",
-        clientSecret: "87d49f998b3a6507b8e6a08760cda274e1d44a22a2bebade9433b1e7445d66a5",
-        deviceId: "magic_mirror_alexa",
         lite: false,
         isSpeechVisualizationEnabled: false,
-        areDisplayCardsEnabled: true
+        areDisplayCardsEnabled: false
     },
 
     start(): void {
@@ -176,7 +173,7 @@ Module.register("MMM-awesome-alexa", {
         console.log('handling directives')
         if (payload && payload.messageBody && payload.messageBody.directives) {
             var directives = payload.messageBody.directives;
-            for (var i: number = 0; i<directives.length; i++) {
+            for (var i: number = 0; i < directives.length; i++) {
                 var directive = directives[i];
 
                 switch (directive.namespace) {
